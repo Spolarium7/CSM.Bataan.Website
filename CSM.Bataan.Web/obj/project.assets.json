@@ -11800,11 +11800,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\goshe\\Documents\\Seed\\CSM.Bataan\\CSM.Bataan.Web\\CSM.Bataan.Web.csproj",
+      "projectUniqueName": "C:\\Users\\goshe\\Documents\\Personal\\CSM.Bataan.Website\\CSM.Bataan.Web\\CSM.Bataan.Web.csproj",
       "projectName": "CSM.Bataan.Web",
-      "projectPath": "C:\\Users\\goshe\\Documents\\Seed\\CSM.Bataan\\CSM.Bataan.Web\\CSM.Bataan.Web.csproj",
+      "projectPath": "C:\\Users\\goshe\\Documents\\Personal\\CSM.Bataan.Website\\CSM.Bataan.Web\\CSM.Bataan.Web.csproj",
       "packagesPath": "C:\\Users\\goshe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\goshe\\Documents\\Seed\\CSM.Bataan\\CSM.Bataan.Web\\obj\\",
+      "outputPath": "C:\\Users\\goshe\\Documents\\Personal\\CSM.Bataan.Website\\CSM.Bataan.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
