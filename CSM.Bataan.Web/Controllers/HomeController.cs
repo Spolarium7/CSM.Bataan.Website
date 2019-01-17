@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CSM.Bataan.Web.Models;
 using CSM.Bataan.Web.Infrastructure.Data.Helpers;
+using CSM.Bataan.Web.ViewModels.Users;
 
 namespace CSM.Bataan.Web.Controllers
 {
@@ -20,8 +21,10 @@ namespace CSM.Bataan.Web.Controllers
 
         public IActionResult Index()
         {
-            var users = this._context.Users.ToList();
-            return View();
+            return View(new IndexViewModel()
+            {
+                Users = this._context.Users.ToList()
+            });
         }
 
         public IActionResult About()
