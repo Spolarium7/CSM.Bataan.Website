@@ -5,13 +5,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CSM.Bataan.Web.Models;
+using CSM.Bataan.Web.Infrastructure.Data.Helpers;
 
 namespace CSM.Bataan.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DefaultDbContext _context;
+
+        public HomeController(DefaultDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
+            var users = this._context.Users.ToList();
             return View();
         }
 
