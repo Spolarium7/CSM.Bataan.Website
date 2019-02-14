@@ -22,6 +22,14 @@
 
                 <h4 class="p-title"><b>MANAGE POSTS</b></h4>
                 <div class="row">
+                    <div class="input-group col-sm-12">
+                        <input id="keyword" type="text" class="form-control" placeholder="Keyword" aria-label="Keyword" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button id="triggerSearch" onclick="search();" class="btn btn-outline-secondary" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     @{
                         if (Model.Posts != null)
                         {
@@ -66,15 +74,15 @@
                                 calcNextPage = Model.Posts.PageCount;
                             }
 
-                <ul class="pager">
-                    <li class="previous"><a href="~/manage/posts?keyword=@(Model.Posts.Keyword)&pageSize=@(Model.Posts.PageSize)&pageIndex=1"><strong><< First </strong></a></li>
-                    <li class="previous"><a href="~/manage/posts?keyword=@(Model.Posts.Keyword)&pageSize=@(Model.Posts.PageSize)&pageIndex=@(calcPrevPage)"><strong>< Previous </strong></a></li>
-                    <li><strong> | page @Model.Posts.CurrentPage | </strong></li>
-                    <li class="next"><a href="~/manage/posts?keyword=@(Model.Posts.Keyword)&pageSize=@(Model.Posts.PageSize)&pageIndex=@(calcNextPage)"><strong>Next > </strong></a></li>
-                    <li class="next"><a href="~/manage/posts?keyword=@(Model.Posts.Keyword)&pageSize=@(Model.Posts.PageSize)&pageIndex=@(Model.Posts.PageCount)"><strong> Last >></strong></a></li>
-                </ul>
+                            <ul class="pager">
+                                <li class="previous"><a href="~/manage/posts?keyword=@(Model.Posts.Keyword)&pageSize=@(Model.Posts.PageSize)&pageIndex=1"><strong><< First </strong></a></li>
+                                <li class="previous"><a href="~/manage/posts?keyword=@(Model.Posts.Keyword)&pageSize=@(Model.Posts.PageSize)&pageIndex=@(calcPrevPage)"><strong>< Previous </strong></a></li>
+                                <li><strong> | page @Model.Posts.CurrentPage | </strong></li>
+                                <li class="next"><a href="~/manage/posts?keyword=@(Model.Posts.Keyword)&pageSize=@(Model.Posts.PageSize)&pageIndex=@(calcNextPage)"><strong>Next > </strong></a></li>
+                                <li class="next"><a href="~/manage/posts?keyword=@(Model.Posts.Keyword)&pageSize=@(Model.Posts.PageSize)&pageIndex=@(Model.Posts.PageCount)"><strong> Last >></strong></a></li>
+                            </ul>
                         }
-                }
+                    }
                 }
                 <a class="dplay-block btn-brdr-primary mt-20 mb-md-50" href="#"><b>LOAD MORE</b></a>
                 </div><!-- col-md-9 -->
@@ -158,3 +166,18 @@
     </div><!-- container -->
 </section>
 
+@section Scripts{ 
+    <script type="text/javascript">
+        $("#keyword").keypress(function (e) {
+            if (e.keyCode == 13) {
+                search();
+            }
+        });
+
+        function search() {
+            if($("#keyword").val()) {
+                window.location = "/manage/posts?keyword=" + $("#keyword").val() + "&pageSize=@(Model.Posts.PageSize)&pageIndex=1";
+            }
+        };
+    </script>
+}
