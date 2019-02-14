@@ -17,6 +17,28 @@ namespace CSM.Bataan.Web.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("CSM.Bataan.Web.Infrastructure.Data.Models.Post", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<DateTime>("PostExpiry");
+
+                    b.Property<DateTime>("Timestamp");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
+                });
+
             modelBuilder.Entity("CSM.Bataan.Web.Infrastructure.Data.Models.User", b =>
                 {
                     b.Property<Guid?>("Id")

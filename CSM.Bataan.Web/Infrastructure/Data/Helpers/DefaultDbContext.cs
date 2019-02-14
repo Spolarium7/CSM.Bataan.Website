@@ -17,6 +17,7 @@ namespace CSM.Bataan.Web.Infrastructure.Data.Helpers
         #region Models
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
         #endregion
 

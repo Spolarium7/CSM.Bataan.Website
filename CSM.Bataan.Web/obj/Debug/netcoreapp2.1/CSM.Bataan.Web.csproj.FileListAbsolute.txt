@@ -30,3 +30,4 @@ C:\Users\goshe\Documents\Personal\CSM.Bataan.Website\CSM.Bataan.Web\obj\Debug\ne
 C:\Users\goshe\Documents\Personal\CSM.Bataan.Website\CSM.Bataan.Web\obj\Debug\netcoreapp2.1\CSM.Bataan.Web.dll
 C:\Users\goshe\Documents\Personal\CSM.Bataan.Website\CSM.Bataan.Web\obj\Debug\netcoreapp2.1\CSM.Bataan.Web.pdb
 C:\Users\goshe\Documents\Personal\CSM.Bataan.Website\CSM.Bataan.Web\obj\Debug\netcoreapp2.1\CSM.Bataan.Web.csproj.CopyComplete
+C:\Users\goshe\Documents\Personal\CSM.Bataan.Website\CSM.Bataan.Web\obj\Debug\netcoreapp2.1\Razor\Areas\Manage\Views\Posts\Index.g.cshtml.cs
