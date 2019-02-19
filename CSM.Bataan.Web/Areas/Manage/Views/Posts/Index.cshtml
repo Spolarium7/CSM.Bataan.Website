@@ -37,7 +37,7 @@
                             {
                                 foreach (Post post in Model.Posts.Items)
                                 {
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <img src="images/crypto-news-6-600x450.jpg" alt="">
                                         <h4 class="pt-20"><a href="#"><b>@post.Title</b></a></h4>
                                         <ul class="list-li-mr-20 pt-10 mb-30">
@@ -45,8 +45,8 @@
                                                 by <a href="#" class="color-black"><b>,</b></a>
                                                 @post.PostExpiry
                                             </li>
-                                            <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-                                            <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
+                                            <li></li>
+                                            <li><a href="#" onclick="return confirmDelete('@post.Id', '@post.Title');"><i class="color-primary mr-5 font-12 ion-close"></i>delete</a></li>
                                         </ul>
                                     </div><!-- col-sm-6 -->
 
@@ -166,6 +166,27 @@
     </div><!-- container -->
 </section>
 
+<div class="modal" tabindex="-1" role="dialog" id="modal-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <span id="modal-delete-title"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="modal-delete-button">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @section Scripts{ 
     <script type="text/javascript">
         $("#keyword").keypress(function (e) {
@@ -179,5 +200,18 @@
                 window.location = "/manage/posts?keyword=" + $("#keyword").val() + "&pageSize=@(Model.Posts.PageSize)&pageIndex=1";
             }
         };
+
+        ////////////////////DELETE/////////////////////////////////////////////////////////////////
+        function confirmDelete(id, title) {
+            alert("");
+            $("#modal-delete-title").html(title);
+            $("#modal-delete-button").attr("onclick", "deletePost('" + id + "')");
+            $("#modal-delete").modal("show");
+            event.preventDefault();
+        }
+
+        function deletePost(id) {
+            window.location = "/manage/post/delete?id=" + id;
+        }
     </script>
 }

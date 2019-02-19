@@ -20,7 +20,7 @@ namespace CSM.Bataan.Web.Areas.Manage.Controllers
 
         [HttpGet, Route("manage/posts/index")]
         [HttpGet, Route("manage/posts")]
-        public IActionResult Index(int pageIndex = 1, int pageSize = 2, string keyword = "")
+        public IActionResult Index(int pageIndex = 1, int pageSize = 10, string keyword = "")
         {
             Page<Post> result = new Page<Post>();
 
@@ -60,6 +60,20 @@ namespace CSM.Bataan.Web.Areas.Manage.Controllers
             {
                 Posts = result
             });
+        }
+
+        [HttpGet, Route("manage/posts/delete")]
+        public IActionResult DeletePost(Guid? id)
+        {
+            var result = this._context.Posts.FirstOrDefault(p => p.Id == id);
+
+            if(result != null)
+            {
+                this._context.Posts.Remove(result);
+                this._context.SaveChanges();
+            };
+
+            return RedirectToAction("index");
         }
     }
 }
